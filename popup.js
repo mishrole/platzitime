@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   btnReload.addEventListener('click', () => {
     // Clear storage
-    // chrome.storage.sync.clear();
+    // chrome.storage.local.clear();
 
     // Send message to contentScript.js to collect data again
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

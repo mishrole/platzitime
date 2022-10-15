@@ -100,7 +100,7 @@ const copyToClipboard = (content) => {
 
 export const fetchCurrentSavedCourseData = (courseId) => {
   return new Promise((resolve, _reject) => {
-    chrome.storage.sync.get([courseId], (data) => {
+    chrome.storage.local.get([courseId], (data) => {
       resolve(data[courseId] ? JSON.parse(data[courseId]) : []);
     });
   });

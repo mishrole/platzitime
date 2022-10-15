@@ -36,7 +36,7 @@
 
   const fetchCurrentSavedCourseData = () => {
     return new Promise((resolve, _reject) => {
-      chrome.storage.sync.get([currentCourse.courseId], (data) => {
+      chrome.storage.local.get([currentCourse.courseId], (data) => {
         resolve(data[currentCourse.courseId] ? JSON.parse(data[currentCourse.courseId]) : []);
       });
     });
@@ -53,7 +53,7 @@
 
     // currentCourses = await fetchCurrentSavedCourseData();
 
-    // chrome.storage.sync.set({
+    // chrome.storage.local.set({
     //   [currentCourse.courseId]: JSON.stringify([...currentCourses, newCourse].sort((a,b) => a.time - b.time))
     // });
 
@@ -64,7 +64,7 @@
     currentCourses = await fetchCurrentSavedCourseData();
 
     if (!isCourseDuplicated(currentCourses, newCourse)) {
-      chrome.storage.sync.set({
+      chrome.storage.local.set({
         [courseId]: JSON.stringify([...currentCourses, newCourse].sort((a,b) => a.time - b.time))
       });
     } else {
@@ -72,7 +72,7 @@
       const currentCourseIndex = currentCourses.findIndex(course => course.courseId === newCourse.courseId);
       currentCourses[currentCourseIndex] = newCourse;
 
-      chrome.storage.sync.set({
+      chrome.storage.local.set({
         [courseId]: JSON.stringify([...currentCourses].sort((a,b) => a.time - b.time))
       });
     }
