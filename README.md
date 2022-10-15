@@ -1,5 +1,6 @@
 <div align="center">
   <h1>Platzi Time extension</h1>
+  <img src="./assets/public/platzitime.png" alt="Platzi Time" width="200"/>
 </div>
 
 Platzi time is a simple extension to check the progress and time remaining to finish a Platzi course. To use it, you need to have a [Platzi course page](https://platzi.com/cursos/programacion-basica/) open, and the extension will show the following:
