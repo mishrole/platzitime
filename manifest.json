@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Platzi Time",
+  "description": "A simple extension to check the progress and time remaining to finish a Platzi course",
+  "author": "Mitchell Rodríguez @mishrole",
+  "version": "0.1.0",
+  "permissions": ["storage", "tabs"],
+  "icons": {
+    "32": "assets/icons/32.png",
+    "48": "assets/icons/48.png"
+  },
+  "host_permissions": ["https://platzi.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://platzi.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/public/*"
+      ],
+      "matches": ["https://platzi.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "32": "assets/icons/32.png",
+      "48": "assets/icons/48.png"
+    },
+    "default_title": "Platzi Time",
+    "default_popup": "popup.html"
+  }
+}
